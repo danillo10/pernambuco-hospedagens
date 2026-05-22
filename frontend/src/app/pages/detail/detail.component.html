@@ -1,0 +1,64 @@
+@if (listing) {
+  <section id="page">
+    <div class="container">
+      <h1>{{ listing.title }}</h1>
+      <p><i class="fa fa-map-marker"></i> {{ listing.city }}</p>
+    </div>
+  </section>
+
+  <div class="breadcrumb_bar">
+    <div class="container">
+      <a routerLink="/">Início</a><span>/</span>
+      <a routerLink="/hospedagens">Hospedagens</a><span>/</span>
+      <span>{{ listing.title }}</span>
+    </div>
+  </div>
+
+  <div class="container margin_60 detail_page">
+    <div class="row detail_row">
+      <div class="col_main">
+        <div class="single_tour_feat">
+          <img [src]="listing.image_url" [alt]="listing.title" class="main_img" />
+        </div>
+        <div class="box_style_1 overview">
+          <h3>Visão geral</h3>
+          <p>{{ listing.description }}</p>
+          <ul class="feat_list">
+            <li><i class="fa fa-user"></i> Até {{ listing.max_guests }} hóspedes</li>
+            <li><i class="fa fa-bed"></i> {{ listing.bedrooms }} quartos</li>
+            <li><i class="fa fa-bath"></i> {{ listing.bathrooms }} banheiros</li>
+            <li><i class="fa fa-tag"></i> {{ labels[listing.property_type] }}</li>
+            <li><i class="fa fa-user-circle"></i> Anfitrião: {{ listing.host_name }}</li>
+          </ul>
+          @if (listing.amenities?.length) {
+            <h4>Comodidades</h4>
+            <ul class="amenities">
+              @for (a of listing.amenities; track a) {
+                <li><i class="fa fa-check"></i> {{ a }}</li>
+              }
+            </ul>
+          }
+        </div>
+      </div>
+      <aside class="col_sidebar_booking">
+        <div class="box_booking">
+          <h4>Reservar</h4>
+          <div class="price_big">
+            <span class="from">A partir de</span>
+            <strong>{{ listing.price_per_night | currency:'BRL' }}</strong>
+            <small>/ noite</small>
+          </div>
+          <label>Check-in <input type="date" class="form-control" [(ngModel)]="checkIn" /></label>
+          <label>Check-out <input type="date" class="form-control" [(ngModel)]="checkOut" /></label>
+          <label>Hóspedes <input type="number" class="form-control" [(ngModel)]="guests" [max]="listing.max_guests" min="1" /></label>
+          <button type="button" class="btn_1 full" (click)="reserve()">Reservar agora</button>
+          @if (bookingMsg) {
+            <p class="msg">{{ bookingMsg }}</p>
+          }
+        </div>
+      </aside>
+    </div>
+  </div>
+} @else {
+  <p class="loading container margin_60">Carregando...</p>
+}

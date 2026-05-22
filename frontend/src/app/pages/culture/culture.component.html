@@ -1,0 +1,32 @@
+<section id="page">
+  <div class="container">
+    <h1>Cultura Pernambucana</h1>
+    <p>Frevo, maracatu, praias e gastronomia</p>
+  </div>
+</section>
+
+<div class="breadcrumb_bar">
+  <div class="container">
+    <a routerLink="/">Início</a><span>/</span><span>Cultura</span>
+  </div>
+</div>
+
+<div class="container margin_60">
+  <div class="main_title">
+    <h2>Viva a cultura de PE</h2>
+  </div>
+  <div class="row">
+    @for (item of items; track item.title) {
+      <div class="col_3">
+        <div class="icon_box culture_card">
+          <i class="fa" [class]="item.icon"></i>
+          <h3>{{ item.title }}</h3>
+          <p>{{ item.text }}</p>
+        </div>
+      </div>
+    }
+  </div>
+  <p class="text-center" style="margin-top: 40px">
+    <a routerLink="/hospedagens" class="btn_1">Encontrar hospedagem</a>
+  </p>
+</div>

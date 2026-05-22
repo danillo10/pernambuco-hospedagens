@@ -1,0 +1,62 @@
+<section id="page">
+  <div class="container">
+    <h1>Anunciar hospedagem</h1>
+    <p>Cadastre como no Airbnb — layout CityTours</p>
+  </div>
+</section>
+
+<div class="breadcrumb_bar">
+  <div class="container">
+    <a routerLink="/">Início</a><span>/</span><span>Anunciar</span>
+  </div>
+</div>
+
+<div class="container margin_60 host_page">
+  @if (!auth.isLoggedIn()) {
+    <div class="box_style_1 login_prompt">
+      <h3><i class="fa fa-google"></i> Entre com Google</h3>
+      <p>Cadastre hotéis, pousadas, apartamentos e quartos.</p>
+      <div id="google-btn-host"></div>
+    </div>
+  } @else {
+    <div class="box_style_1">
+      <h3 class="inner">Novo anúncio</h3>
+      <form (ngSubmit)="submit()" class="host_form">
+        <div class="row">
+          <div class="col_2">
+            <label>Título <input class="form-control" [(ngModel)]="form.title" name="title" required /></label>
+          </div>
+          <div class="col_2">
+            <label>Tipo
+              <select class="form-control" [(ngModel)]="form.property_type" name="type">
+                @for (t of types; track t) {
+                  <option [value]="t">{{ labels[t] }}</option>
+                }
+              </select>
+            </label>
+          </div>
+        </div>
+        <label>Descrição <textarea class="form-control" [(ngModel)]="form.description" name="desc" rows="4"></textarea></label>
+        <div class="row">
+          <div class="col_3"><label>Cidade <input class="form-control" [(ngModel)]="form.city" name="city" /></label></div>
+          <div class="col_3"><label>Bairro <input class="form-control" [(ngModel)]="form.neighborhood" name="bairro" /></label></div>
+          <div class="col_3"><label>Preço/noite <input type="number" class="form-control" [(ngModel)]="form.price_per_night" name="price" /></label></div>
+        </div>
+        <label>Comodidades (vírgula) <input class="form-control" [(ngModel)]="form.amenitiesText" name="amen" /></label>
+        <label>URL foto <input class="form-control" [(ngModel)]="form.image_url" name="img" /></label>
+        <button type="submit" class="btn_1">Publicar</button>
+        @if (success) { <p class="ok">{{ success }}</p> }
+      </form>
+    </div>
+    @if (myListings.length) {
+      <div class="box_style_1" style="margin-top: 30px">
+        <h3 class="inner">Meus anúncios</h3>
+        <ul class="mine_list">
+          @for (l of myListings; track l.id) {
+            <li>{{ l.title }} — {{ l.city }} · {{ l.price_per_night | currency:'BRL' }}/noite</li>
+          }
+        </ul>
+      </div>
+    }
+  }
+</div>

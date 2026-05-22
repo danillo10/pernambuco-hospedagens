@@ -1,0 +1,35 @@
+.culture_card {
+  background: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  border-radius: 3px;
+  padding: 25px;
+  height: 100%;
+  text-align: center;
+  transition: box-shadow 0.3s;
+
+  &:hover {
+    box-shadow: var(--ct-shadow);
+  }
+
+  i {
+    font-size: 42px;
+    color: var(--pe-vermelho);
+    margin-bottom: 15px;
+  }
+
+  h3 {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: var(--ct-dark);
+  }
+
+  p {
+    font-size: 13px;
+    color: var(--ct-muted);
+    margin: 0;
+  }
+}
+
+.text-center {
+  text-align: center;
+}

@@ -1,0 +1,36 @@
+<header id="plain" class="sticky" [class.stuck]="scrolled">
+  <div class="container header_container">
+    <div id="logo">
+      <a routerLink="/">
+        <span class="logo_flag" aria-hidden="true"></span>
+        <span class="logo_text">Pernambuco<strong>Hospedagens</strong></span>
+      </a>
+    </div>
+
+    <nav id="menu" class="main-menu" [class.active]="menuOpen">
+      <ul>
+        <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Início</a></li>
+        <li><a routerLink="/hospedagens" routerLinkActive="active">Hospedagens</a></li>
+        <li><a routerLink="/historia" routerLinkActive="active">História</a></li>
+        <li><a routerLink="/cultura" routerLinkActive="active">Cultura</a></li>
+        <li><a routerLink="/anunciar" routerLinkActive="active">Anunciar</a></li>
+      </ul>
+    </nav>
+
+    <div class="header_actions">
+      @if (auth.isLoggedIn()) {
+        @if (auth.user()?.avatar_url) {
+          <img class="avatar" [src]="auth.user()!.avatar_url" [alt]="auth.user()!.name" />
+        }
+        <button type="button" class="btn_outline small" (click)="auth.logout()">Sair</button>
+      } @else {
+        <div id="google-btn-header" class="google_slot"></div>
+      }
+      <a routerLink="/hospedagens" class="btn_1 hidden_mobile">Buscar</a>
+    </div>
+
+    <button type="button" class="cmn-toggle-switch" (click)="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

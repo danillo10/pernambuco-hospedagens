@@ -1,0 +1,46 @@
+<section id="page">
+  <div class="container">
+    <h1>Hospedagens</h1>
+    <p>Encontre hotéis, pousadas e apartamentos em Pernambuco</p>
+  </div>
+</section>
+
+<div class="breadcrumb_bar">
+  <div class="container">
+    <a routerLink="/">Início</a><span>/</span><span>Hospedagens</span>
+  </div>
+</div>
+
+<div class="container margin_60 listings_page">
+  <div class="row">
+    <aside class="col_sidebar">
+      <div class="box_style_1">
+        <h4 class="inner">Filtrar</h4>
+        <input type="text" class="form-control" placeholder="Buscar..." [(ngModel)]="filters.q" (keyup.enter)="load()" />
+        <input type="text" class="form-control" placeholder="Cidade" [(ngModel)]="filters.city" />
+        <select class="form-control" [(ngModel)]="filters.property_type">
+          <option value="">Todos os tipos</option>
+          @for (t of types; track t) {
+            <option [value]="t">{{ labels[t] }}</option>
+          }
+        </select>
+        <input type="number" class="form-control" placeholder="Hóspedes" [(ngModel)]="filters.guests" min="1" />
+        <button type="button" class="btn_1 full" (click)="load()"><i class="fa fa-search"></i> Buscar</button>
+      </div>
+    </aside>
+    <div class="col_content">
+      <p class="results_count">{{ listings.length }} hospedagens encontradas</p>
+      @if (listings.length) {
+        <div class="row">
+          @for (l of listings; track l.id) {
+            <div class="col_3">
+              <app-listing-card [listing]="l" />
+            </div>
+          }
+        </div>
+      } @else {
+        <p class="loading">Nenhuma hospedagem encontrada.</p>
+      }
+    </div>
+  </div>
+</div>

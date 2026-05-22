@@ -1,0 +1,134 @@
+<!-- Hero CityTours style -->
+<section id="hero_2" class="hero_home">
+  <div class="hero_overlay"></div>
+  <div class="intro_title">
+    <h1>Pernambuco</h1>
+    <p>Hotéis, pousadas e experiências com a alma do Nordeste</p>
+  </div>
+</section>
+
+<!-- Search panel overlapping hero -->
+<div class="search_container style_1">
+  <div class="container">
+    <ul class="nav nav-tabs" role="tablist">
+      <li class="active"><a><i class="fa fa-bed"></i> Hospedagens</a></li>
+      <li><a routerLink="/cultura"><i class="fa fa-music"></i> Cultura</a></li>
+      <li><a routerLink="/historia"><i class="fa fa-landmark"></i> História</a></li>
+    </ul>
+    <div class="tab-content">
+      <div class="tab-pane active">
+        <form class="search_form" (ngSubmit)="search()">
+          <div class="row search_row">
+            <div class="col_field">
+              <label><i class="fa fa-map-marker"></i> Destino</label>
+              <input type="text" placeholder="Recife, Olinda, Porto de Galinhas..." [(ngModel)]="searchCity" name="city" />
+            </div>
+            <div class="col_field">
+              <label><i class="fa fa-users"></i> Hóspedes</label>
+              <input type="number" min="1" max="20" [(ngModel)]="searchGuests" name="guests" />
+            </div>
+            <div class="col_field col_btn">
+              <button type="submit" class="btn_1 full_width">Buscar</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Destinos populares -->
+<div class="container margin_60">
+  <div class="main_title">
+    <h2>Destinos populares</h2>
+    <p>As cidades mais procuradas em Pernambuco</p>
+  </div>
+  <div class="row">
+    @for (d of destinations; track d.city) {
+      <div class="col_4">
+        <a class="img_wrapper" [routerLink]="['/hospedagens']" [queryParams]="{ city: d.city }">
+          <img [src]="d.image" [alt]="d.city" loading="lazy" />
+          <div class="img_caption">
+            <h3>{{ d.city }}</h3>
+            <span>{{ d.count }} hospedagens</span>
+          </div>
+        </a>
+      </div>
+    }
+  </div>
+</div>
+
+<!-- Destaques -->
+<div class="bg_color_1">
+  <div class="container margin_60">
+    <div class="main_title">
+      <h2>Hospedagens em destaque</h2>
+      <p>Seleção especial — estilo CityTours, com coração pernambucano</p>
+    </div>
+    @if (featured.length) {
+      <div class="row">
+        @for (l of featured; track l.id) {
+          <div class="col_3">
+            <app-listing-card [listing]="l" />
+          </div>
+        }
+      </div>
+    } @else {
+      <p class="loading">Carregando hospedagens...</p>
+    }
+    <p class="text-center" style="margin-top: 30px">
+      <a routerLink="/hospedagens" class="btn_1">Ver todas as hospedagens</a>
+    </p>
+  </div>
+</div>
+
+<!-- Por que escolher -->
+<div class="container margin_60">
+  <div class="main_title">
+    <h2>Por que Pernambuco Hospedagens?</h2>
+  </div>
+  <div class="row icon_boxes">
+    <div class="col_3">
+      <div class="icon_box">
+        <i class="fa fa-flag"></i>
+        <h3>100% Pernambuco</h3>
+        <p>Visual e cultura do nosso estado em cada detalhe.</p>
+      </div>
+    </div>
+    <div class="col_3">
+      <div class="icon_box">
+        <i class="fa fa-home"></i>
+        <h3>Cadastro fácil</h3>
+        <p>Anuncie pousada, hotel ou apartamento em minutos.</p>
+      </div>
+    </div>
+    <div class="col_3">
+      <div class="icon_box">
+        <i class="fa fa-google"></i>
+        <h3>Login com Google</h3>
+        <p>Entre e reserve sem complicação.</p>
+      </div>
+    </div>
+    <div class="col_3">
+      <div class="icon_box">
+        <i class="fa fa-shield"></i>
+        <h3>Reserva segura</h3>
+        <p>Confirmação rápida e suporte local.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- História CTA -->
+<section class="banner_pe">
+  <div class="container banner_inner">
+    <div class="banner_text">
+      <h2>História e bandeira de Pernambuco</h2>
+      <p>De Olinda ao Marco Zero — conheça o estado antes de se hospedar.</p>
+      <a routerLink="/historia" class="btn_2">Saiba mais</a>
+    </div>
+    <div class="banner_flag" aria-hidden="true">
+      <div class="f1"></div><div class="f2">☀</div><div class="f3"></div>
+    </div>
+  </div>
+</section>

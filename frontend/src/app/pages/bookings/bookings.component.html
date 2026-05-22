@@ -1,0 +1,32 @@
+<section id="page">
+  <div class="container">
+    <h1>Minhas reservas</h1>
+    <p>Suas hospedagens confirmadas</p>
+  </div>
+</section>
+
+<div class="breadcrumb_bar">
+  <div class="container">
+    <a routerLink="/">Início</a><span>/</span><span>Reservas</span>
+  </div>
+</div>
+
+<div class="container margin_60">
+  @if (!auth.isLoggedIn()) {
+    <div class="box_style_1 login_prompt">
+      <p>Faça login para ver reservas.</p>
+      <div id="google-btn-bookings"></div>
+    </div>
+  } @else if (bookings.length) {
+    @for (b of bookings; track b.id) {
+      <div class="booking_item">
+        <h3>{{ b.listing_title }}</h3>
+        <p><i class="fa fa-calendar"></i> {{ b.check_in | date:'dd/MM/yyyy' }} — {{ b.check_out | date:'dd/MM/yyyy' }}</p>
+        <p><i class="fa fa-users"></i> {{ b.guests }} hóspedes · <strong>{{ b.total_price | currency:'BRL' }}</strong></p>
+        <span class="label_status">{{ b.status }}</span>
+      </div>
+    }
+  } @else {
+    <p class="loading">Sem reservas. <a routerLink="/hospedagens" class="btn_1">Explorar</a></p>
+  }
+</div>

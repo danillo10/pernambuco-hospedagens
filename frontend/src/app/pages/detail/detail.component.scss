@@ -1,0 +1,151 @@
+.detail_row {
+  align-items: flex-start;
+}
+
+.col_main {
+  flex: 1;
+  min-width: 0;
+  padding: 0 15px;
+}
+
+.col_sidebar_booking {
+  flex: 0 0 340px;
+  max-width: 340px;
+  padding: 0 15px;
+}
+
+.main_img {
+  width: 100%;
+  border-radius: 3px;
+  max-height: 450px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 25px;
+}
+
+.box_style_1.overview {
+  background: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  padding: 25px;
+  border-radius: 3px;
+
+  h3 {
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    color: var(--ct-dark);
+    font-size: 18px;
+  }
+
+  p {
+    line-height: 1.8;
+    color: var(--ct-text);
+  }
+}
+
+.feat_list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+
+  li {
+    font-size: 14px;
+    i {
+      color: var(--pe-vermelho);
+      margin-right: 8px;
+      width: 18px;
+    }
+  }
+}
+
+.amenities {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+
+  li {
+    background: var(--ct-bg);
+    padding: 6px 12px;
+    border-radius: 3px;
+    font-size: 13px;
+    i {
+      color: green;
+      margin-right: 6px;
+    }
+  }
+}
+
+.box_booking {
+  background: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  padding: 25px;
+  border-radius: 3px;
+  box-shadow: var(--ct-shadow);
+  position: sticky;
+  top: 100px;
+
+  h4 {
+    margin: 0 0 15px;
+    text-transform: uppercase;
+    border-bottom: 2px solid var(--pe-vermelho);
+    padding-bottom: 10px;
+  }
+
+  .price_big {
+    margin-bottom: 20px;
+    .from {
+      display: block;
+      font-size: 12px;
+      color: var(--ct-muted);
+    }
+    strong {
+      font-size: 28px;
+      color: var(--pe-vermelho);
+    }
+    small {
+      color: var(--ct-muted);
+    }
+  }
+
+  label {
+    display: block;
+    margin-bottom: 12px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--ct-border);
+    border-radius: 3px;
+    margin-top: 4px;
+  }
+
+  .btn_1.full {
+    width: 100%;
+    margin-top: 10px;
+    padding: 14px;
+  }
+
+  .msg {
+    margin-top: 12px;
+    font-size: 13px;
+    color: var(--pe-azul-escuro);
+  }
+}
+
+@media (max-width: 991px) {
+  .col_sidebar_booking {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  .box_booking {
+    position: static;
+  }
+}

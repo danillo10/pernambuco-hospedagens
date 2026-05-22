@@ -1,0 +1,159 @@
+#plain.sticky {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+  background: var(--ct-white);
+  box-shadow: var(--ct-shadow);
+  transition: box-shadow 0.3s;
+
+  &.stuck {
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.12);
+  }
+}
+
+.header_container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px;
+  gap: 15px;
+}
+
+#logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ct-dark);
+}
+
+.logo_flag {
+  width: 40px;
+  height: 28px;
+  border-radius: 2px;
+  background: linear-gradient(
+    180deg,
+    var(--pe-azul) 0% 33%,
+    #fff 33% 66%,
+    var(--pe-amarelo) 66% 100%
+  );
+  border: 1px solid #ddd;
+}
+
+.logo_text {
+  font-size: 18px;
+  font-weight: 400;
+
+  strong {
+    color: var(--pe-vermelho);
+    font-weight: 700;
+  }
+}
+
+.main-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 28px;
+}
+
+.main-menu a {
+  text-decoration: none;
+  color: var(--ct-dark);
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+
+  &:hover,
+  &.active {
+    color: var(--pe-vermelho);
+  }
+}
+
+.header_actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 2px solid var(--pe-amarelo);
+}
+
+.btn_outline.small {
+  padding: 6px 14px;
+  font-size: 12px;
+}
+
+.google_slot {
+  min-height: 40px;
+}
+
+.cmn-toggle-switch {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+
+  span {
+    width: 24px;
+    height: 2px;
+    background: var(--ct-dark);
+  }
+}
+
+.hidden_mobile {
+  @media (max-width: 991px) {
+    display: none !important;
+  }
+}
+
+@media (max-width: 991px) {
+  .cmn-toggle-switch {
+    display: flex;
+  }
+
+  .main-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--ct-white);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s;
+
+    &.active {
+      max-height: 400px;
+    }
+
+    ul {
+      flex-direction: column;
+      padding: 20px;
+      gap: 0;
+    }
+
+    li {
+      border-bottom: 1px solid var(--ct-border);
+      padding: 12px 0;
+    }
+  }
+
+  #plain.sticky {
+    position: relative;
+  }
+
+  .header_container {
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,42 @@
+.login_prompt {
+  text-align: center;
+  padding: 40px;
+  background: var(--ct-bg);
+  border: 1px solid var(--ct-border);
+  border-radius: 3px;
+}
+
+.booking_item {
+  background: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  padding: 20px 25px;
+  margin-bottom: 15px;
+  border-radius: 3px;
+  border-left: 4px solid var(--pe-vermelho);
+
+  h3 {
+    margin: 0 0 10px;
+    color: var(--ct-dark);
+  }
+
+  p {
+    margin: 5px 0;
+    font-size: 14px;
+    color: var(--ct-text);
+    i {
+      color: var(--pe-vermelho);
+      margin-right: 8px;
+    }
+  }
+
+  .label_status {
+    display: inline-block;
+    margin-top: 10px;
+    background: var(--pe-azul-escuro);
+    color: #fff;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,52 @@
+.host_page .box_style_1 {
+  background: var(--ct-white);
+  border: 1px solid var(--ct-border);
+  padding: 25px;
+  border-radius: 3px;
+}
+
+.host_page h3.inner {
+  margin: 0 0 20px;
+  text-transform: uppercase;
+  border-bottom: 2px solid var(--pe-vermelho);
+  padding-bottom: 10px;
+}
+
+.login_prompt {
+  text-align: center;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+.host_form label {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.form-control {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--ct-border);
+  border-radius: 3px;
+  margin-top: 4px;
+  font-size: 14px;
+}
+
+.ok {
+  color: green;
+  margin-top: 15px;
+}
+
+.mine_list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  li {
+    padding: 10px 0;
+    border-bottom: 1px solid var(--ct-border);
+    font-size: 14px;
+  }
+}
