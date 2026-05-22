@@ -30,7 +30,7 @@
             <li><i class="fa fa-tag"></i> {{ labels[listing.property_type] }}</li>
             <li><i class="fa fa-user-circle"></i> Anfitrião: {{ listing.host_name }}</li>
           </ul>
-          @if (listing.amenities?.length) {
+          @if (listing.amenities.length) {
             <h4>Comodidades</h4>
             <ul class="amenities">
               @for (a of listing.amenities; track a) {

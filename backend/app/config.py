@@ -2,7 +2,7 @@ from pydantic_settings import BaseSettings
 
 
 class Settings(BaseSettings):
-    app_name: str = "Pernambuco Hospedagens API"
+    app_name: str = "Pernambuco Maravilha API"
     secret_key: str = "change-me-in-production-pernambuco-2026"
     algorithm: str = "HS256"
     access_token_expire_minutes: int = 60 * 24 * 7

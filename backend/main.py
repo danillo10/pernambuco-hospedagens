@@ -46,7 +46,7 @@ app.include_router(bookings.router, prefix="/api")
 
 @app.get("/")
 def root():
-    return {"message": "Pernambuco Hospedagens API", "docs": "/docs"}
+    return {"message": "Pernambuco Maravilha API", "docs": "/docs"}
 
 
 @app.get("/health")
